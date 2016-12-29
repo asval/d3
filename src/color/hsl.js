@@ -8,6 +8,8 @@ function d3_hsl(h, s, l) {
       : arguments.length < 2 ? (h instanceof d3_hsl ? new d3_hsl(h.h, h.s, h.l)
       : d3_rgb_parse("" + h, d3_rgb_hsl, d3_hsl))
       : new d3_hsl(h, s, l);
+  
+  
 }
 
 var d3_hslPrototype = d3_hsl.prototype = new d3_color;
@@ -31,6 +33,7 @@ function d3_hsl_rgb(h, s, l) {
       m2;
 
   /* Some simple corrections for h, s and l. */
+  /* This is my first commit!!!*/
   h = isNaN(h) ? 0 : (h %= 360) < 0 ? h + 360 : h;
   s = isNaN(s) ? 0 : s < 0 ? 0 : s > 1 ? 1 : s;
   l = l < 0 ? 0 : l > 1 ? 1 : l;
@@ -43,7 +46,7 @@ function d3_hsl_rgb(h, s, l) {
     if (h > 360) h -= 360;
     else if (h < 0) h += 360;
     if (h < 60) return m1 + (m2 - m1) * h / 60;
-    if (h < 180) return m2;
+    if (h < 180) return m2
     if (h < 240) return m1 + (m2 - m1) * (240 - h) / 60;
     return m1;
   }
